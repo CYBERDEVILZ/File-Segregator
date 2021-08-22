@@ -29,7 +29,7 @@ def extension_grabber(array):
     ext = {}
     for files in array:
         for index, value in enumerate(files[-1::-1]):
-            if value == "." && (index != 0 || index !=1):
+            if value == "." and (index != 0 or index !=1):
                 try:
                     ext[files[len(files)-index:]].append(files)
                 except KeyError:    
