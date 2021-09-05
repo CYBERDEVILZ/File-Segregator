@@ -1,6 +1,5 @@
 import platform
 import os
-import sys
 
 def windows(dir, ext):
     for folder in ext:
