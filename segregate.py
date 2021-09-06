@@ -58,7 +58,7 @@ def segregate(dir):
     for i in LIST:
         var = tk.StringVar()
         var.set("1")
-        checkbox = tk.Checkbutton(frame2, text=i, variable=var, font = ("Helvetica", 10), padx = 5, bg = "grey")
+        checkbox = tk.Checkbutton(frame2, text=i, variable=var, font = ("Helvetica", 10), padx = 5, pady = 20, bg = "white")
         checkdict[i] = var
         checkbox.pack(side=LEFT)
     
@@ -110,7 +110,7 @@ if __name__ == "__main__":
     window = tk.Tk()
     window.geometry("800x470")
     window.resizable(0,0)
-    window.config(bg = "black")
+    window.config(bg = "white")
     window.title("File Segregator")
 
     #----------------------------------- images --------------------------------------#
@@ -127,32 +127,32 @@ if __name__ == "__main__":
     image3 = image3.resize((round(image3.size[0] * 0.2), round(image3.size[1] * 0.2)))
     image3 = ImageTk.PhotoImage(image3)
 
-    title_lbl = tk.Label(window, image = image0, font = ("Helvetica", 30), bg = "black")
+    title_lbl = tk.Label(window, image = image0, font = ("Helvetica", 30), bg = "white")
     title_lbl.pack(padx=20, pady=20)
 
-    frame1 = tk.Frame(window, bg = "black")
+    frame1 = tk.Frame(window, bg = "white")
     frame1.pack()
-    dir_btn = tk.Button(frame1, image = image2, borderwidth= 0, command = opendir, bg = "black")
+    dir_btn = tk.Button(frame1, image = image2, borderwidth= 0, command = opendir, bg = "white")
     dir_btn.pack(pady = 20, side=LEFT)
 
-    find_btn = tk.Button(frame1, image = image3, borderwidth= 0, command = find, bg = "black")
+    find_btn = tk.Button(frame1, image = image3, borderwidth= 0, command = find, bg = "white")
     find_btn.pack(pady = 20, padx = 20, side=LEFT)
 
-    none_frm = tk.Frame(window, height = 5, bg = "black")
+    none_frm = tk.Frame(window, height = 5, bg = "white")
     none_frm.pack()
 
-    path_lbl = tk.Label(window, text = PATH, font = ("Helvetica", 12), bg = "black", fg = "white")
+    path_lbl = tk.Label(window, text = PATH, font = ("Helvetica", 12), bg = "white", fg = "black")
     path_lbl.pack()
 
     checkdict = {}
 
-    frame2 = tk.Frame(window, bg = "black")
+    frame2 = tk.Frame(window, bg = "white")
     frame2.pack()
 
-    none_frm = tk.Frame(window, height = 30, bg = "black")
+    none_frm = tk.Frame(window, height = 30, bg = "white")
     none_frm.pack()
 
-    seg_btn = tk.Button(window, image = image1, borderwidth = 0, command = printme, bg = "black")
+    seg_btn = tk.Button(window, image = image1, borderwidth = 0, command = printme, bg = "white")
     seg_btn.pack()
 
 
