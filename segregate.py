@@ -7,27 +7,31 @@ from tkinter.filedialog import Directory, askdirectory
 
 def windows(dir, ext):
     for folder in ext:
-        destPath = dir + "\\" + folder
-        os.system("mkdir " + dir + "\\" + folder)
+        destPath = "\"" + dir + "/" + folder + "\""
+        os.system("mkdir " + destPath)
         for files in ext[folder]:
-            os.system("move /Y " + dir + "\\" + "\"" + files + "\" " + destPath)
+           final_path = ("\"" + dir + "/" + files + "\" " + destPath).replace("/", "\\")
+           os.system("move /Y " + final_path)
+        exit(0)
     
 
 
 
 def linux(dir, ext):
     for folder in ext:
-        destPath = dir + "/" + folder
-        os.system("mkdir " + dir + "/" + folder)
+        destPath = "\"" + dir + "/" + folder + "\""
+        os.system("mkdir " + destPath)
         for files in ext[folder]:
-            os.system("mv " + dir + "/" + "\"" + files + "\" " + destPath)
+            os.system("mv " + "\"" + dir + "/" + files + "\" " + destPath)
+        exit(0)
 
 def darwin(dir, ext):
     for folder in ext:
-        destPath = dir + "/" + folder
-        os.system("mkdir " + dir + "/" + folder)
+        destPath = "\"" + dir + "/" + folder + "\""
+        os.system("mkdir " + destPath)
         for files in ext[folder]:
-            os.system("mv " + dir + "/" + "\"" + files + "\" " + destPath)
+            os.system("mv " + "\"" + dir + "/" + files + "\" " + destPath)
+        exit(0)
 
 def extension_grabber(array):
     ext = {}
