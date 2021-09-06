@@ -58,7 +58,7 @@ def segregate(dir):
     for i in LIST:
         var = tk.StringVar()
         var.set("1")
-        checkbox = tk.Checkbutton(frame2, text=i, variable=var, font = ("Helvetica", 10), padx = 5, pady = 30)
+        checkbox = tk.Checkbutton(frame2, text=i, variable=var, font = ("Helvetica", 10), padx = 5, bg = "grey")
         checkdict[i] = var
         checkbox.pack(side=LEFT)
     
@@ -108,7 +108,7 @@ if __name__ == "__main__":
     LIST = []
     PATH = "Your folder path appears here..."
     window = tk.Tk()
-    window.geometry("800x400")
+    window.geometry("800x470")
     window.resizable(0,0)
     window.config(bg = "black")
     window.title("File Segregator")
@@ -127,7 +127,7 @@ if __name__ == "__main__":
     image3 = image3.resize((round(image3.size[0] * 0.2), round(image3.size[1] * 0.2)))
     image3 = ImageTk.PhotoImage(image3)
 
-    title_lbl = tk.Label(window, image = image0, font = ("Helvetica", 30) ,bg = "black")
+    title_lbl = tk.Label(window, image = image0, font = ("Helvetica", 30), bg = "black")
     title_lbl.pack(padx=20, pady=20)
 
     frame1 = tk.Frame(window, bg = "black")
