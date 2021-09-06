@@ -3,7 +3,9 @@ import os
 import tkinter as tk
 from tkinter import Tk, font
 from tkinter.constants import LEFT
-from tkinter.filedialog import Directory, askdirectory
+from tkinter.filedialog import askdirectory
+from PIL import Image, ImageTk
+
 
 def windows(dir, ext):
     for folder in ext:
@@ -13,9 +15,6 @@ def windows(dir, ext):
            final_path = ("\"" + dir + "/" + files + "\" " + destPath).replace("/", "\\")
            os.system("move /Y " + final_path)
         exit(0)
-    
-
-
 
 def linux(dir, ext):
     for folder in ext:
@@ -33,6 +32,7 @@ def darwin(dir, ext):
             os.system("mv " + "\"" + dir + "/" + files + "\" " + destPath)
         exit(0)
 
+
 def extension_grabber(array):
     ext = {}
     for files in array:
@@ -47,6 +47,7 @@ def extension_grabber(array):
                     break
     return ext
 
+
 def segregate(dir):
     global ext
     listDir = dir.replace('"', '')
@@ -60,7 +61,6 @@ def segregate(dir):
         checkbox = tk.Checkbutton(frame2, text=i, variable=var, font = ("Helvetica", 10), padx = 5, pady = 30)
         checkdict[i] = var
         checkbox.pack(side=LEFT)
-
     
 
 def opendir():
@@ -72,13 +72,15 @@ def opendir():
         PATH = path
         path_lbl.config(text=PATH)
 
+
 def find():
     global PATH
     if PATH == "Your folder path appears here...":
         return
     else:
         segregate(PATH)
-    
+
+
 def printme():
     global checkdict
     for i in checkdict.keys():
@@ -101,37 +103,56 @@ def printme():
 
         
 
-    
-
 if __name__ == "__main__":
     ext = {}
     LIST = []
     PATH = "Your folder path appears here..."
     window = tk.Tk()
-    window.geometry("800x800")
+    window.geometry("800x400")
     window.resizable(0,0)
+    window.config(bg = "black")
     window.title("File Segregator")
 
-    title_lbl = tk.Label(window, text = "FILE SEGREGATOR", font = ("Helvetica", 30))
+    #----------------------------------- images --------------------------------------#
+    image0 = Image.open("./images/file-segegator.png")
+    image0 = image0.resize((round(image0.size[0] * 0.5), round(image0.size[1] * 0.5)))
+    image0 = ImageTk.PhotoImage(image0)
+    image1 = Image.open("./images/segregate-button.png")
+    image1 = image1.resize((round(image1.size[0] * 0.28), round(image1.size[1] * 0.28)))
+    image1 = ImageTk.PhotoImage(image1)
+    image2 = Image.open("./images/choose-folder-button.png")
+    image2 = image2.resize((round(image2.size[0] * 0.2), round(image2.size[1] * 0.2)))
+    image2 = ImageTk.PhotoImage(image2)
+    image3 = Image.open("./images/find.png")
+    image3 = image3.resize((round(image3.size[0] * 0.2), round(image3.size[1] * 0.2)))
+    image3 = ImageTk.PhotoImage(image3)
+
+    title_lbl = tk.Label(window, image = image0, font = ("Helvetica", 30) ,bg = "black")
     title_lbl.pack(padx=20, pady=20)
 
-    frame1 = tk.Frame(window)
+    frame1 = tk.Frame(window, bg = "black")
     frame1.pack()
-    dir_btn = tk.Button(frame1, text = "Choose Folder", font = ("Helvetica", 12), command = opendir)
+    dir_btn = tk.Button(frame1, image = image2, borderwidth= 0, command = opendir, bg = "black")
     dir_btn.pack(pady = 20, side=LEFT)
 
-    find_btn = tk.Button(frame1, text = "Find", font = ("Helvetica", 12), command = find)
+    find_btn = tk.Button(frame1, image = image3, borderwidth= 0, command = find, bg = "black")
     find_btn.pack(pady = 20, padx = 20, side=LEFT)
 
-    path_lbl = tk.Label(window, text = PATH, font = ("Helvetica", 12))
+    none_frm = tk.Frame(window, height = 5, bg = "black")
+    none_frm.pack()
+
+    path_lbl = tk.Label(window, text = PATH, font = ("Helvetica", 12), bg = "black", fg = "white")
     path_lbl.pack()
 
     checkdict = {}
 
-    frame2 = tk.Frame(window)
+    frame2 = tk.Frame(window, bg = "black")
     frame2.pack()
 
-    seg_btn = tk.Button(window, text = "BEGIN SEGREGATION!", font=("Helvetica", 15), pady = 40, command = printme)
+    none_frm = tk.Frame(window, height = 30, bg = "black")
+    none_frm.pack()
+
+    seg_btn = tk.Button(window, image = image1, borderwidth = 0, command = printme, bg = "black")
     seg_btn.pack()
 
 
