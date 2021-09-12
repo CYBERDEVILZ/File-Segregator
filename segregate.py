@@ -14,7 +14,7 @@ def windows(dir, ext):
         for files in ext[folder]:
            final_path = ("\"" + dir + "/" + files + "\" " + destPath).replace("/", "\\")
            os.system("move /Y " + final_path)
-        exit(0)
+    exit(0)
 
 def linux(dir, ext):
     for folder in ext:
@@ -126,6 +126,7 @@ if __name__ == "__main__":
     image3 = Image.open("./images/find.png")
     image3 = image3.resize((round(image3.size[0] * 0.2), round(image3.size[1] * 0.2)))
     image3 = ImageTk.PhotoImage(image3)
+    #----------------------------------- images --------------------------------------#
 
     title_lbl = tk.Label(window, image = image0, font = ("Helvetica", 30), bg = "white")
     title_lbl.pack(padx=20, pady=20)
