@@ -9,3 +9,12 @@
   File Segregator is a program written in Python to segregate different files into folders, making the workspace look very neat and organized like a well maintained book rack in a library.
   
   The working is really simple and it comes with an easy to use Graphical User Interface. All you need is a few clicks and your cluttery, bestrewed mess will be taken care of.
+</p>
+<h2>How To Use?</h2>
+<ul>
+  <li>Run the file <b>segregate.py</b></li>
+  <li>Select the folder which contains your cluttery bestrewed mess.</li>
+  <li>Choose the extensions that needs to be segregated</li>
+  <li>Click on <b>Segregate</b> button</li>
+</ul>
+  
